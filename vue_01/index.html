@@ -5,11 +5,32 @@
      <meta charset="UTF-8">
      <meta name="viewport" content="width=device-width, initial-scale=1.0">
      <title>Document</title>
+     <style>
+          .color {
+               color: red;
+          }
+     </style>
 </head>
 
 <body>
      <div id="root">
-          {{ message }}
+          <p>Name: 
+               <input type="text" v-model="name">     
+          </p> 
+          <br>
+          <h1>{{ name }}</h1>
+
+          <ul>
+               <li>
+                    <a :class="{'color': className == 'color1'}" :href="link1.url" :title="link1.title" target="_blank">{{ link1.text }}</a>
+               </li>
+               <li>
+                    <a :class="{'color': className == 'color2'}" :href="link2.url" :title="link2.title" target="_blank">{{ link2.text }}
+               </li>
+          </ul>
+
+          <br>
+          <p v-html="html"></p>
      </div>
 
      <script src="https://cdn.jsdelivr.net/npm/vue@2.6.12/dist/vue.js"></script>
@@ -19,7 +40,21 @@
           var app = new Vue({
                el: "#root",
                data: {
-                    message: 'Hello World'
+                    message: 'Hello World',
+                    name : '',
+                    link1: {
+                         text: "facebook", 
+                         title: 'Go to facebook',
+                         url: 'https://facebook.com',
+                    },
+                    link2: {
+                         text: "google", 
+                         title: 'Go to google',
+                         url: 'https://google.com',
+                    },
+                    className: "color",
+                    html: '<h2> Its a html tag. </h2>'
+
                }
           });
      </script>
