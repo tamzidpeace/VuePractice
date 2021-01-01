@@ -4,7 +4,9 @@
 <head>
      <meta charset="UTF-8">
      <meta name="viewport" content="width=device-width, initial-scale=1.0">
-     <title>Document</title>
+     <title>Vue.js</title>
+     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet"
+          integrity="sha384-giJF6kkoqNQ00vy+HMDP7azOuL0xtbfIcaT9wjKHr8RbDVddVHyTfAAsrekwKmP1" crossorigin="anonymous">
      <style>
           .color {
                color: red;
@@ -12,48 +14,40 @@
      </style>
 </head>
 
-<body>
-     <div id="root">
-          <p>Name:
-               <input type="text" v-model="name">
-          </p>
-          <br>
-          <h1>{{ name }}</h1>
-
-
-          <br>
-          <p v-html="html"></p>
-          <br>
-          <!-- list rendering -->
-          <ul>
-               <li v-for="skill in skills">
-                    {{ skill }}
-               </li>
-          </ul>
-          <input type="text" v-model="newSkill">
-          <button v-on:click="addNewSkill()">Add</button>
+<body class="m-5 p-5">
+     <div id="root">          
+          <panel title="This is title" content="this is content"></panel>
      </div>
 
+     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/js/bootstrap.bundle.min.js"
+          integrity="sha384-ygbV9kiqUc6oa4msXn9868pTtWMgiQaeYH7/t7LECLbyPA2x65Kgf80OJFdroafW" crossorigin="anonymous">
+     </script>
      <script src="https://cdn.jsdelivr.net/npm/vue@2.6.12/dist/vue.js"></script>
 
+
      <script>
-          console.log(123);
+          Vue.component("panel", {
+               template: `
+               <div class="card mt-5 ">
+               <h5 class="card-header">Featured</h5>
+               <div class="card-body">
+
+                    <h5 class="card-title">{{ title }}</h5>
+                    <p class="card-text">{{ content }}</p>
+
+               </div>
+          </div>
+               `,
+               props: ['title', 'content']
+          });
+
+
           var app = new Vue({
                el: "#root",
                data: {
-                    message: 'Hello World',
-                    name: '',
-                    html: '<h2> Its a html tag. </h2>',
-                    newSkill: 'fgfgf',
-                    skills: ['html', 'css', 'js'],
 
                },
-               methods: {
-                    addNewSkill: function () {
-                         this.skills.push(this.newSkill);
-                         this.newSkill = "";
-                    }
-               },
+
           });
      </script>
 </body>
