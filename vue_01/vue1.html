@@ -17,12 +17,13 @@
 
 <div class="container mt-5">
 
-    <div id="app-3">
-        <button v-on:click="printName">Click</button>
-        <todo-item></todo-item>
+    <div id="app">
+        <h1>{{ title }}</h1>
+
+        <input type="text" ref="input">
+        <button v-on:click="getRef">Get Ref</button>
+        <p>{{ value }}</p>
     </div>
-
-
 
 </div>
 

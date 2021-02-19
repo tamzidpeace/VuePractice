@@ -1,25 +1,15 @@
-Vue.component('todo-item', {
-    template: `<p>My name is {{name}} <button v-on:click="changeName">Change Name</button></p>`,
-    data: function () {
-        return {
-         name: 'Arafat',
-        }
-    },
-    methods: {
-      changeName: function () {
-          this.name = 'Kamal'
-      }
-    },
-})
-
-var app3 = new Vue({
-    el: '#app-3',
+var app = new Vue({
+    el: '#app',
     data: {
-        title: 'Test',
+        title: 'Learn Vue',
+        value: 'abc',
     },
     methods: {
-        printName: function () {
-            console.log('Arafat');
+        getRef: function () {
+            let ref = this.$refs;
+            let new_value = ref.input.value;
+            this.value = new_value;
+            console.log(ref.input.value);
         }
     }
 })
