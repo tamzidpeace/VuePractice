@@ -17,21 +17,12 @@
 
 <div class="container mt-5">
 
-    <div id="app-2">
-          <span v-bind:title="message">
-               Hover your mouse over me for a few seconds
-               to see my dynamically bound title!
-          </span>
-
-        <li>
-            <todo-item v-for="item in groceryList" v-bind:todo="item"></todo-item>
-        </li>
-
-        <br>
-
-        <component1></component1>
-
+    <div id="app-3">
+        <button v-on:click="printName">Click</button>
+        <todo-item></todo-item>
     </div>
+
+
 
 </div>
 
