@@ -1,38 +1,25 @@
 <template>
   <div>
-    <h1>{{ title }}</h1>
-    <p>{{ greeting() }}</p>
-
-    <br>
-
-    <h3>Ninjas</h3>
-    <ninjas></ninjas>
-
-    <br>
-
-    <h3>Games</h3>
-    <games></games>
-
+    <app-header></app-header>
+    <app-ninjas></app-ninjas>
+    <app-footer></app-footer>
   </div>
+
 </template>
 
 <script>
-import Games from './Games'
+import Header from "./components/Header";
+import Footer from "./components/Footer";
+import Ninjas from "./components/Ninjas";
 
 export default {
   components: {
-    'games': Games,
+    'app-header': Header,
+    'app-footer': Footer,
+    'app-ninjas': Ninjas,
   },
   data() {
-    return {
-      title: 'Your first vue file',
-    }
-  },
-
-  methods: {
-    greeting: function () {
-      return 'Hi there'
-    }
+    return {}
   }
 }
 </script>
