@@ -15,13 +15,10 @@
 
 
 export default {
+  props:['ninjas'],
   data() {
     return {
-      ninjas: [
-        {name: 'Ryu', speciality: 'Vue Components', show: false},
-        {name: 'Ryu1', speciality: 'Vue Components1', show: false},
-        {name: 'Ryu2', speciality: 'Vue Components2', show: false},
-      ]
+
     }
   }
 }
