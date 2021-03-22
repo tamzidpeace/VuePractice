@@ -1,9 +1,10 @@
 import Vue from 'vue'
-import VueResource from 'vue-resource'
 import App from './App.vue'
+import axios from 'axios'
+import VueAxios from 'vue-axios'
 
 // Use vue-resource package
-Vue.use(VueResource);
+Vue.use(VueAxios, axios)
 
 new Vue({
   el: '#app',
