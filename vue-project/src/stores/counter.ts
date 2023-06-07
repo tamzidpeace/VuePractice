@@ -5,6 +5,8 @@ export const useCounterStore = defineStore('counter', () => {
   const count = ref<number>(2);
   const name = ref<string | number>('arafat');
   const doubleCount = computed(() => count.value * 2);
+  const tasks = ref<string[]>(['Task 1', 'Task 2', 'Task 3'])
+
 
   function increment() {
     count.value++
@@ -14,5 +16,19 @@ export const useCounterStore = defineStore('counter', () => {
     name.value = 'arafat kamal';
   }
 
-  return { count, name, doubleCount, increment, changeName }
+
+
+  return {
+    // states
+    count,
+    name,
+    tasks,
+
+    // computed
+    doubleCount, 
+
+    // methods
+    increment, 
+    changeName,
+  }
 })
