@@ -8,10 +8,10 @@ const { increment, changeName } = store
 </script>
 
 <template>
-  <div class="body">
-    <div class="add-task">
-      <input type="text"> 
-      <button @click="increment">Increment</button>
+  <div class="body ">
+    <div class="flex flex-row space-x-4  justify-center pt-10">
+      <input class="rounded  border-none border-[0px] focus:outline-none color-[#ccc]" type="text"> 
+      <button class="bg-blue-500 text-white rounded px-2 py-1" @click="increment">Increment</button>
     </div>
 
     <ul id="">
