@@ -2,6 +2,7 @@
 import { useTaskStore } from '../stores/taskStore'
 import { storeToRefs } from 'pinia'
 import Task from './TaskComponent.vue'
+import Form from './Form.vue';
 
 
 const store = useTaskStore()
@@ -28,6 +29,11 @@ const { addTask } = store
           <Task :title="task" :index="index" />
         </li>
       </ul>
+    </div>
+
+    -----------
+    <div>
+      <Form />
     </div>
   </div>
 
