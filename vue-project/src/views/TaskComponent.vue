@@ -27,7 +27,11 @@
         </button>
       </div>
     </Dialog>
+
   </div>
+
+ 
+
 </template>
 
 
@@ -35,7 +39,6 @@
 import { defineProps, ref, watch } from 'vue'
 import { useTaskStore } from '../stores/taskStore'
 import { storeToRefs } from 'pinia'
-import Button from 'primevue/button'
 import Dialog from 'primevue/dialog'
 
 const store = useTaskStore()
@@ -58,6 +61,13 @@ const handleTaskUpdate = (index: number) => {
   updateTask(index, task.value)
   visible.value = false
 }
+
+
+const y = ref<string>('abc')
+
+setTimeout(() => {
+  y.value = 'rafsan'
+}, 2000);
 </script>
 
 
