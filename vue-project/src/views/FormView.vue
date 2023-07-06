@@ -35,8 +35,8 @@ const options = [
 
 const date = ref('');
 
-const handleDateChange = (e: any) => {
-    console.log(e.target.value);
+const handleDateChange = (e: Event) => {
+    console.log(e.target?.value);
 
 }
 
