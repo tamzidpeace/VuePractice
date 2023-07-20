@@ -1,50 +1,46 @@
 <script setup lang="ts">
 import { useTaskStore } from '../stores/taskStore'
 import { storeToRefs } from 'pinia'
-import Task from './TaskComponent.vue'
-import Form from './FormView.vue';
-import { ref } from 'vue';
-import MultiSelect from 'primevue/multiselect';
-
-
+import Modal from '@/components/Modal.vue';
+import Button from 'primevue/button';
 
 const store = useTaskStore()
-const { task, tasks } = storeToRefs(store)
-const { addTask } = store
+const { visible, temp } = storeToRefs(store)
 
-const selectedCities = ref();
-const cities = ref([
-  { name: 'New York', code: 'NY' },
-  
+const openModal = () => {
+  console.log('here');
+  visible.value = true;
+  temp.value = !temp.value;
+}
 
-]);
+const closeModal = () => {
+  visible.value = false;
+  console.log('here');
+
+}
 </script>
 
 <template>
   <div class="body">
-    <div class="flex flex-row space-x-4 justify-center pt-10">
-      <input class="rounded border-none border-[0px] focus:outline-none color-[#ccc]" type="text" :value="task"
-        @input="task = $event.target.value" />
 
-      <button class="bg-blue-500 text-white rounded px-2 py-1" @click="addTask">Add</button>
-    </div>
+    <button @click="() => visible = true">open modal</button>
 
-    <div class="flex flex-row mt-5 w-full justify-center">
-      <ul id="">
-        <li v-for="(task, index) in tasks" :key="index">
-          <Task :title="task" :index="index" />
-        </li>
-      </ul>
-    </div>
+    <Modal header="Add Products/Services" :visible="visible" @closeModal="closeModal" :hasFooter="true">
+      <template #body>
+        <div class="flex flex-row justify-content-start align-items-center w-full gap-3">
+          <div class="bg-red-200 h-8 w-full"></div>
+          <div class="bg-blue-200 h-8 w-full"></div>
+        </div>
+      </template>
 
-    <div class="card flex justify-content-center">
-      <MultiSelect v-model="selectedCities" :options="cities" filter optionLabel="name" placeholder="Select Cities"
-        :maxSelectedLabels="3" class="w-full md:w-20rem" />
-    </div>
+      <template #footer>
+        <div class="flex flex-row justify-content-between w-full gap-3 bg-slate-100">
+          <div><Button size="small" label="Secondary" severity="secondary" /></div>
+          <div><Button size="small" label="Primary" /></div>
+        </div>
+      </template>
+    </Modal>
 
-    <div>
-      <Form />
-    </div>
   </div>
 </template>
 
